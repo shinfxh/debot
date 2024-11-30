@@ -254,7 +254,7 @@ def loss_KL_wo_E(output):
 
 ##################
 ### Problem 3(c): Train VAE with ELBO loss
-epochs = 20
+epochs = 50
 
 hidden_dims = [128, 32, 16, 4]
 assert hidden_dims[-1] == 4, "always use 4 as the latent dimension for generating a 2D image grid during evaluation"
@@ -269,7 +269,7 @@ print(vae_sgvb)
 coeff = 1e-4
 
 optimizer_vae_sgvb = torch.optim.Adam(vae_sgvb.parameters(),
-                                lr = 5e-3,
+                                lr = 1e-3,
                                 weight_decay = 1e-8)
 
 log_vae_sgvb = train(MNIST_loader, vae_sgvb, lambda model, x: loss_func(model, x, reg_func=loss_SGVB, coeff=coeff), optimizer_vae_sgvb, epochs)
@@ -853,7 +853,7 @@ def prepare_biased_loaders_for_class(dataset, biased_class, batch_size=256, shuf
 
 for k in range(10):
     # Example usage
-    biased_class_label = 0  # Replace with the desired class to bias
+    biased_class_label = k  # Replace with the desired class to bias
     biased_loaders = prepare_biased_loaders_for_class(
         dataset=MNIST_dataset,  # Replace with your dataset
         biased_class=biased_class_label,
