@@ -279,11 +279,11 @@ log_vae_sgvb = train(MNIST_loader, vae_sgvb, lambda model, x: loss_func(model, x
 # In[9]:
 
 
-##################
-### Problem 3(c): Evaluate VAE with ELBO loss
-eval(vae_sgvb)
-plot_latent_images(vae_sgvb, n=8)
-##################
+# ##################
+# ### Problem 3(c): Evaluate VAE with ELBO loss
+# eval(vae_sgvb)
+# plot_latent_images(vae_sgvb, n=8)
+# ##################
 
 
 # In[10]:
